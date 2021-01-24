@@ -13,6 +13,8 @@ class PracticeController extends AbstractController
      */
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('practice/index.html.twig', [
             'controller_name' => 'PracticeController',
         ]);

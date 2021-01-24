@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add new exercise!{% endblock %}
+
+{% block body %}
+    {{ form_start(exerciseForm) }}
+        {{ form_widget(exerciseForm) }}
+        <button type="submit" class="btn btn-primary">Add!</button>
+    {{ form_end(exerciseForm) }}
+{% endblock %}
