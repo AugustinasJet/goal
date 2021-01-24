@@ -17,13 +17,15 @@ class ExerciseController extends AbstractController
      */
     public function new(EntityManagerInterface $em, Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $form = $this->createForm(ExerciseFormType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $exercise = (new Exercise())
                 ->setName($form->getData()['name']);
             $em->persist($exercise);
-            $em->flush($exercise);
+            $em->flush();
         }
 
         return $this->render('exercise/new.html.twig', [

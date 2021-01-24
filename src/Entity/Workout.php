@@ -18,11 +18,6 @@ class Workout
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $exercise_id;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $performed_at;
@@ -42,19 +37,25 @@ class Workout
      */
     private $note;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Exercise::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $exercise;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getExerciseId(): ?int
+    public function getExercise(): ?Exercise
     {
-        return $this->exercise_id;
+        return $this->exercise;
     }
 
-    public function setExerciseId(int $exercise_id): self
+    public function setExercise(Exercise $exercise): self
     {
-        $this->exercise_id = $exercise_id;
+        $this->exercise = $exercise;
 
         return $this;
     }
