@@ -21,13 +21,13 @@ class ExercisePlan
      * @ORM\ManyToOne(targetEntity=Plan::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $planId;
+    private $plan;
 
     /**
      * @ORM\ManyToOne(targetEntity=Exercise::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $exerciseId;
+    private $exercise;
 
     /**
      * @ORM\Column(type="integer")
@@ -54,26 +54,26 @@ class ExercisePlan
         return $this->id;
     }
 
-    public function getPlanId(): ?Plan
+    public function getPlan(): ?Plan
     {
-        return $this->planId;
+        return $this->plan;
     }
 
-    public function setPlanId(?Plan $planId): self
+    public function setPlan(?Plan $plan): self
     {
-        $this->planId = $planId;
+        $this->plan = $plan;
 
         return $this;
     }
 
-    public function getExerciseId(): ?Exercise
+    public function getExercise(): ?Exercise
     {
-        return $this->exerciseId;
+        return $this->exercise;
     }
 
-    public function setExerciseId(?Exercise $exerciseId): self
+    public function setExercise(?Exercise $exercise): self
     {
-        $this->exerciseId = $exerciseId;
+        $this->exercise = $exercise;
 
         return $this;
     }
