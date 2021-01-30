@@ -35,19 +35,29 @@ class ExercisePlan
     private $progressionStep;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $reps;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $sets;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $progressionName;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $setsFrom;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $setsTo;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $RepsFrom;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $RepsTo;
 
     public function getId(): ?int
     {
@@ -90,30 +100,6 @@ class ExercisePlan
         return $this;
     }
 
-    public function getReps(): ?int
-    {
-        return $this->reps;
-    }
-
-    public function setReps(int $reps): self
-    {
-        $this->reps = $reps;
-
-        return $this;
-    }
-
-    public function getSets(): ?int
-    {
-        return $this->sets;
-    }
-
-    public function setSets(int $sets): self
-    {
-        $this->sets = $sets;
-
-        return $this;
-    }
-
     public function getProgressionName(): ?string
     {
         return $this->progressionName;
@@ -122,6 +108,54 @@ class ExercisePlan
     public function setProgressionName(string $progressionName): self
     {
         $this->progressionName = $progressionName;
+
+        return $this;
+    }
+
+    public function getSetsFrom(): ?int
+    {
+        return $this->setsFrom;
+    }
+
+    public function setSetsFrom(int $setsFrom): self
+    {
+        $this->setsFrom = $setsFrom;
+
+        return $this;
+    }
+
+    public function getSetsTo(): ?int
+    {
+        return $this->setsTo;
+    }
+
+    public function setSetsTo(int $setsTo): self
+    {
+        $this->setsTo = $setsTo;
+
+        return $this;
+    }
+
+    public function getRepsFrom(): ?int
+    {
+        return $this->RepsFrom;
+    }
+
+    public function setRepsFrom(int $RepsFrom): self
+    {
+        $this->RepsFrom = $RepsFrom;
+
+        return $this;
+    }
+
+    public function getRepsTo(): ?int
+    {
+        return $this->RepsTo;
+    }
+
+    public function setRepsTo(int $RepsTo): self
+    {
+        $this->RepsTo = $RepsTo;
 
         return $this;
     }
