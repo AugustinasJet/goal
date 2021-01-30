@@ -23,7 +23,7 @@ class ExerciseController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $exercise = (new Exercise())
-                ->setName($form->getData()['name']);
+                ->setName($form->getData()->getName());
             $em->persist($exercise);
             $em->flush();
         }

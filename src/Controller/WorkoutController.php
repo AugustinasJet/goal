@@ -23,7 +23,9 @@ class WorkoutController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $workout = $data->setPerformedAt(new \DateTime());
+            $workout = $data
+                ->setPerformedAt(new \DateTime())
+                ->setUser($this->getUser());
 
             $em->persist($workout);
             $em->flush();

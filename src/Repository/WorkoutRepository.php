@@ -22,19 +22,17 @@ class WorkoutRepository extends ServiceEntityRepository
     // /**
     //  * @return Workout[] Returns an array of Workout objects
     //  */
-    /*
-    public function findByExampleField($value)
+    public function findByUser(int $value): array
     {
         return $this->createQueryBuilder('w')
-            ->andWhere('w.exampleField = :val')
+            ->andWhere('w.user = :val')
             ->setParameter('val', $value)
-            ->orderBy('w.id', 'ASC')
+            ->orderBy('w.performed_at', 'DESC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Workout
