@@ -44,6 +44,11 @@ class ExercisePlan
      */
     private $sets;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $progressionName;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +110,18 @@ class ExercisePlan
     public function setSets(int $sets): self
     {
         $this->sets = $sets;
+
+        return $this;
+    }
+
+    public function getProgressionName(): ?string
+    {
+        return $this->progressionName;
+    }
+
+    public function setProgressionName(string $progressionName): self
+    {
+        $this->progressionName = $progressionName;
 
         return $this;
     }
